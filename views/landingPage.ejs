@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>KennysART</h1>
+    <% if (user!= undefined) { %>
+      <%-console.log(user)%>
+     <p id="loginmessage">YOU ARE LOGGED IN</p>
+     <a href="/logout" id="logout">logout</a>
+    <% } %>
+    <a href="/upload" id="admin">admin?</a>
+    <p id="click-msg"></p>
+    <div id="loading-overlay">
+      <h1 id="load-msg">please wait....images loading</h1>
+    </div>
+   
+    <div id="img-div"></div>
+    <script>
+        view()
+       let load_msg=document.getElementById('load-msg')
+     async function view(){
+        let res=await fetch('/getimages');
+        let json=await res.json();
+        load_msg.style.display='none';
+        let click_msg=document.getElementById('click-msg');
+        click_msg.textContent='please click on an image to like it or leave a comment'
+        document.getElementById('loading-overlay').style.display='none'
+
+        
+        for(i in json){
+/*
+           let img= document.createElement('img');
+           let p=document.createElement('p');
+           let div=document.createElement('div')
+           let likes=document.createElement('div');
+           var input=document.createElement('input');
+           let noOfLikes=document.createElement('p');
+           let br=document.createElement('br')
+           input.type='checkbox'
+           noOfLikes.textContent='0';
+           likes.append(noOfLikes);likes.append(input);
+           likes.id='likes'
+           p.textContent=json[i].description;
+           div.append(img);div.append(likes);div.append(br);div.append(p)
+           p.id='p'
+           img.src=json[i].url;
+           document.getElementById('img-div').append(div)
+           img.id='img'
+           img.className=json[i]._id
+           div.id='div'
+           input.id=json[i]._id;
+        
+          div.addEventListener('click',async(e)=>{
+              let imgId=div.childNodes[0].className;
+             let res= await fetch('/another',{
+                method:'POST',
+                body:JSON.stringify({picId:imgId}),
+                headers:{
+                    'Content-Type':'application/json'
+                }
+              }).then(e=>{
+                return e.json();
+              }).then(e=>{
+                console.log(e)
+              })
+
+           })
+*/
+const form=document.createElement('form');
+form.action='/:id';
+form.method='post';
+let img= document.createElement('img');
+ let p=document.createElement('p');
+ let hiddenInput=document.createElement('input');
+ let btn=document.createElement('button');
+ img.src=json[i].url;
+btn.type='submit';
+btn.style.display='none'
+ hiddenInput.value=json[i]._id;
+ hiddenInput.style.display='none';
+ hiddenInput.name='picId'
+ form.append(img);form.append(hiddenInput);form.append(btn)
+ document.getElementById('img-div').append(form)
+ img.id='img'
+ form.className='form'
+form.addEventListener('click',(e)=>{
+    btn.click()
+})
+
+
+
+        }
+
+ 
+
+
+
+     }
+    
+    </script>
+</body>
+</html>

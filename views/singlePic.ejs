@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <% if (typeof title!=='undefined') { %>
+        <title><%= title  %></title>
+    <% } else{%>
+       <title>kennyapp</title>
+     <% } %>
+         
+    
+    <div id="img-div"></div>
+</head>
+
+<a href="/" id="logout">back to pictures</a>
+<div id="loading-overlay">
+    <p id="single-load-msg">image loading..please wait</p>
+</div>
+
+<a href="/logout" id="admin">logout</a>
+<p id="picid"style="display: none;"><%- id  %></p>
+             <% if (url!==undefined) { %>
+                <p id="snitch" hidden>loaded</p>
+                <div id="disappear" style="display:none ;">
+
+<div class="single-wrapper">
+
+<div class="single-window">
+    <img id="single"  style="display:none ;" alt="img"src=<%- url  %>  >
+</div>
+
+</div>
+                   
+                    <% if (status!==null) { %> <% // which means user already likes post %>
+                        <form action="/dislike" method="post" id="form">
+                          <p>  <p><%-likes  %><% if (likes==1) { %>
+                            like
+                          <% }else{ %>
+                              likes
+                          <% } %>
+                          </p>
+                            <label for="liking">
+                             
+                            </label>
+                            <input type="text" hidden id="id" value=<%- id  %> name="id">
+                           
+                            <button type="submit" id="submit" class="likebutton">dislike</button>
+                            </form>
+    
+                    <% }else{ %>
+    
+    
+                        <form action="/like" method="post" id="form">
+                            <p><%-likes  %><% if (likes==1) { %>
+                              like
+                            <% }else{ %>
+                                likes
+                            <% } %>
+                            
+                            </p>
+                            <label for="liking">
+                            </label>
+                            <input type="text" hidden id="id" value=<%- id  %> name="id">
+                            <button type="submit" id="submit" class="likebutton">like</button>
+             </form>
+    
+    
+            
+            
+                   <% } %>
+                  
+         
+                  
+                 
+                 <% }else{ %>
+    <p>please wait image loading</p>
+                    <% } %>
+                 <%- // comment part %>
+                 <form action="/comment" method="post" id="textareaform">    
+                 <label for="">
+                    <p>leave a comment</p>
+                    <textarea name="comment" id="textarea" placeholder="enter comment here">
+                       
+                    </textarea>
+                    <input type="text" name="author" value=<%- user.username  %> hidden class="sm">
+                   <input type="text" name="picture" value="<%- id  %>" hidden class="sm">
+                    
+                    <button>COMMENT</button>
+                </label>
+            </form>
+       <h2>comments</h2>
+       <div class="comment-area">
+<% if (comment.length<1) { %>
+ <h1 id="nocomments">no comments YET</h1>
+<% } else{%>
+
+
+    <% for(i=comment.length-1;i>=0;i--) { %>
+    
+        <div id="commentdiv">
+           <h3><%-comment[i].comment %></h3>
+           <span><p><small>posted by:</small></p><%- comment[i].author  %></p>
+           <br>
+           <small><%- comment[i].time  %></small>
+         
+        </div>
+    <% } %>
+    
+<% } %>
+
+
+       </div>
+
+
+
+
+
+
+
+                </div>
+
+<body>
+   <script>
+    
+   let form=document.getElementById('form');
+   let button=document.getElementById('submit')
+   let picId=document.getElementById('picid').textContent
+   let load=document.getElementById('single-load-msg');
+   let snitch=document.getElementById('snitch');
+   setInterval(() => {
+     if(snitch.textContent=='loaded'){
+        load.style.display='none'
+        document.getElementById('single').style.display='block'
+        document.getElementById('disappear').style.display='block'
+        document.getElementById('loading-overlay').style.display='none'
+     }
+   },1000);
+   //view()
+async function view(){
+    let res=await fetch('/viewcomment',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body:JSON.stringify({
+            picId
+        })
+    });
+    let json=await res.json();
+    console.log(json)
+}
+/*
+form.addEventListener('submit',(e)=>{
+    location.reload()
+})
+button.addEventListener('click',e=>{
+    location.reload()
+})
+*/
+
+   </script>
+
+  
+</body>
+</html>

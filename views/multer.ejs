@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/logout" id="admin">logout</a>
+    <a href="/" id="logout">go to pictures</a>
+    <h1>imageUploader</h1>
+    <p id="err"><%= typeof err==='undefined'?'':err%></p>
+    <div class="centre-form">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="nodefile" id="">
+            <input type="text" placeholder="enter image name" name="artname" required>
+            <button type="submit">UPLOAD IMAGE</button>
+        </form>
+
+ 
+
+    </div>
+    <div id="uploadedImages">
+               
+    </div>
+   
+    <script>
+
+        view()
+async function view(){
+    let res=await fetch('/getimages');
+    let e=await res.json()
+   
+console.log(e)
+
+
+    for(i in e){
+                let div=document.createElement('div');
+                let p=document.createElement('p');
+                let img=document.createElement('img');
+                var button=document.createElement('button');
+                let form=document.createElement('form');
+                let likes=document.createElement('div');
+                form.method='post';
+                form.action='/deleteImg'
+                button.type='submit'
+                button.textContent='delete';
+                button.onclick='submit()'
+                button.id=e[i]._id
+                likes.textContent=e[i].noOfLikes
+                img.src=e[i].url;
+                p.textContent=e[i].description;
+                div.append(img);
+                div.append(p);
+                div.append(likes)
+                div.append(button)
+                document.getElementById('uploadedImages').append(div)
+                div.id='multerdiv'
+                img.id="upImg"
+
+           
+
+           button.addEventListener('click',async(e)=>{
+            let data={
+                msg:button.id
+            }
+            await fetch('/deleteImg',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },body:JSON.stringify(data)
+            }).then(e=>{
+               return e.json()
+
+            }).then(e=>{
+                if(e.msg==='refresh'){
+                    location.reload()
+                }
+            })
+           })
+                        
+
+            }
+       
+}
+const err=document.getElementById('err');
+
+   
+         
+       
+    
+  
+   
+    </script>
+</body>
+</html>

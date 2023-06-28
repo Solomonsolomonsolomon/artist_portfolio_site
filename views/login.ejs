@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>login</h1>
+  <a href="/" id="login-back">back to pictures</a>
+<%if (messages.error) { %>
+    <h2 class="login-err"><%= messages.error  %></h2>
+<% }  %>
+    
+    <p class="login-err"><%= typeof err==='undefined'?'':err%></p>
+    <div class="login-wrapper">
+
+
+
+
+        <div class="loginform-container">
+
+            <form action="/login" method="post" id="loginform">
+    
+                <label for="">
+                 <p>username</p>
+                 <input type="text"name="username">
+                </label>
+                <label for="">
+                 <p>password</p>
+                 <input type="password"name="password">
+                </label>
+              
+             <button type="submit">LOGIN</button>
+             <a href="/signup">dont have an account?register</a>
+             </form>
+            
+        </div>
+
+
+
+
+
+    </div>
+   
+</body>
+</html>

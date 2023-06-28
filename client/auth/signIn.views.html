@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+</head>
+<body>
+    <h1>signIn</h1>
+    <p id="signinerr"></p>
+   <form method="post" action="/auth/signin" id="signinform">
+    <input type="text" name="variable" id="userorpass" placeholder="enter email or username">
+    <input type="password" name="password" id="signinpass"placeholder="enter password">
+    <a href="/auth/signup">signup?</a>
+    <button>login</button>
+   </form>
+   <script src="./auth.views.js"></script>
+</body>
+</html>

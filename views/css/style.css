@@ -1,0 +1,361 @@
+
+/* landing page */
+
+h1{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     background: linear-gradient(to left,blue,rgb(251, 8, 48));
+     -webkit-text-fill-color: transparent;
+     -webkit-background-clip: text;
+}
+#load-msg{
+    font-size: 2em;
+}
+.form{
+   
+
+    height:600px;
+}
+#click-msg{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    
+}
+#img-div{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+  
+
+}
+#logout{
+    text-decoration: none;
+    background: linear-gradient(to left,blue,rgb(251, 8, 48));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 30px;
+    text-align: right;
+    position: absolute;
+    left: 10px;
+}
+#admin{
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(to left,blue,rgb(251, 8, 48));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 30px;
+    text-align: right;
+    position: absolute;
+    right:10px
+}
+#img{
+   position: relative;
+   width: 90%;
+   height:90%;
+ border:2px solid ;
+ border-radius: 10px;
+    
+}
+form{
+   
+    height: 100%;
+    width:100%;  display:flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+#loginmessage{
+    text-align: center;
+    background: linear-gradient(to left,blue,rgb(251, 8, 48));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: larger;
+
+}
+#loginmessage:start{
+    color: blue;
+}
+/*login form */
+.login-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+#loginform{
+    display: grid;
+    border: 1px solid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+   
+}
+#loginform input{
+    border: none;
+    border-bottom: 1px dashed;
+}
+#loginform label{
+    text-align: center;
+    font-size: 25px;
+}
+#loginform a{
+display: block;
+padding: 100px;
+text-align: center;
+}
+#loginform button{
+    padding: 2.7%;
+    margin-top: 10px;
+    background: linear-gradient(to left,blue,rgb(251, 8, 48));
+    border: none;
+    color: white;
+}
+.login-err{
+    text-align: center;
+    font-size: 30px;
+   
+}
+#login-back{
+    text-decoration: none;
+    font-size: 30px;
+    background: linear-gradient(to left,blue,rgb(251, 8, 48));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+}
+#loginform a{
+    color: blue;
+}
+/* register form */
+.centre-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup-window{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#signupform{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    padding: 100px;
+  
+}
+#signupform input{
+    display: block;
+    border: none;
+    border-bottom: 1px dashed;
+}
+#signupform label{
+    text-align: center;
+    font-size: 25px;
+}
+
+#signupform button{
+    margin-top: 6px;
+    text-align: center;
+    padding: 4%;
+    border: none;
+    color: white;
+    background: linear-gradient(to left,blue,rgb(251, 8, 48));
+    font-size: 18px;
+    
+}
+#signupform a{
+    color: blue;
+
+}
+#signupfooter{
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    text-align: center;
+}
+#signup-back{
+    text-decoration: none;
+    font-size: 30px;
+    background: linear-gradient(to left,blue,rgb(251, 8, 48));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+#warning{
+    text-align: center;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/* singlepage */
+
+#loading-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#single-load-msg{
+ font-size: 1.9rem;
+ background: linear-gradient(to left,blue,rgb(251, 8, 48));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+
+}
+
+#nocomments{
+    color: white;
+    background: linear-gradient(to left,black,black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.single-wrapper{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.single-window{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+#single{
+    margin-top: 4%;
+    width: 97%;
+    height: auto;
+    border: 1px solid;
+}
+#like-form button{
+padding: 2%;
+background: linear-gradient(to left,blue,rgb(251, 8, 48));
+border:none;
+}
+#textareaform{
+    width: 100%;
+
+}
+#textarea{
+
+ width: 100%;
+ height: 150px;
+ resize: none;
+ box-sizing: border-box;
+ border: 2px solid black;
+}
+#textareaform label{
+    width: 100%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+#textareaform button{    
+    padding: 1.5%;
+background: linear-gradient(to left,blue,rgb(251, 8, 48));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+
+}
+.comment-area{
+   
+    height: 500px;
+    scroll-behavior: auto;
+    overflow: auto;
+    
+background: linear-gradient(to left,blue,rgb(251, 8, 48));
+color: white;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size:15px;
+
+}
+#commentdiv{
+  border: 1px solid;
+  text-align: center;
+}
+.likebutton{
+    padding: 1.5%;
+    background: linear-gradient(to left,blue,rgb(251, 8, 48));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+margin-left: 5px;
+margin-top: 5px;
+    
+}
+.sm{
+    width: 1px;
+}
+/*  upload page  */
+#uploadedImages{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#multerdiv{
+   border: 1px solid;
+  width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+#upImg{
+ 
+  width:400px;
+   height:400px;
+   object-fit: contain;
+}
+
+
+
+
+/*mobile view */
+@media (max-width:768px) {
+    #img-div{
+        display:grid;
+        grid-template-columns: 1fr;
+        
+    }
+    #logout{
+        display: block;
+        position: relative;
+       
+        float: left;
+    }
+    #admin{
+        display: block;
+        position: relative;
+    }
+    #uploadedImages{
+        display: grid;
+        grid-template-columns:1fr;
+        justify-content: center;
+        align-items: center;
+    }
+    #multerdiv{
+       border: 1px solid;
+      width: 380px;
+      display: grid;
+      grid-template-columns:1fr;
+      justify-content: center;
+      align-items: center;
+    }
+    #upImg{
+ 
+        width:100%;
+         height:380px;
+         object-fit: contain;
+      }
+}
+
+/*
+YC
+
+*/
